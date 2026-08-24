@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Mill Creek Inn at River Run</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           COLOR PALETTE & GLOBAL VARIABLES
+           ========================================================================== */
+        :root {
+            --forest-green: #1C3B2B;
+            --forest-light: #2A543F;
+            --gold: #D4A359;
+            --gold-hover: #B88940;
+            --rust: #9E472A;
+            --bg-light: #F8F7F4;
+            --card-bg: #FFFFFF;
+            --text-dark: #232B28;
+            --text-muted: #5C6660;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           NAVIGATION HEADER
+           ========================================================================== */
+        header {
+            background-color: var(--forest-green);
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           STATIC HERO BANNER
+           ========================================================================== */
+        .hero-banner {
+            position: relative;
+            width: 100%;
+            height: 45vh;
+            min-height: 320px;
+            background-image: url('MillCreekFront.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(28, 59, 43, 0.4) 0%, rgba(28, 59, 43, 0.75) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        /* ==========================================================================
+           STORY SECTION
+           ========================================================================== */
+        .story-section {
+            max-width: 1100px;
+            margin: -3rem auto 4rem auto;
+            position: relative;
+            z-index: 3;
+            padding: 0 1.5rem;
+        }
+
+        .story-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--rust);
+        }
+
+        .section-tag {
+            color: var(--rust);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            margin-bottom: 2.5rem;
+        }
+
+        /* Layout Grid for Paragraph & Image */
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-text p {
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            margin-bottom: 1.25rem;
+        }
+
+        .story-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-image-container {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            border: 4px solid var(--bg-light);
+        }
+
+        .story-image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .story-image-container:hover img {
+            transform: scale(1.03);
+        }
+
+        .image-caption {
+            background-color: var(--forest-green);
+            color: var(--gold);
+            text-align: center;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--forest-green);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #D1D8D4;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 868px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-image-container {
+                order: -1; /* Shows image above text on mobile devices */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .story-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .story-card h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mill Creek Inn <span>at River Run</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html" class="active">About Us</a></li>
+                    <li><a href="ownerpage.html">Owner Portal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Static Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>About Our Inn</h1>
+                <p>History & Heritage at Keystone</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Story Section -->
+    <main class="story-section">
+        <article class="story-card">
+            <span class="section-tag">Our Heritage</span>
+            <h2>The Mill Creek Story</h2>
+            <div class="divider"></div>
+
+            <div class="story-grid">
+                <!-- Story Text Side -->
+                <div class="story-text">
+                    <p>
+                        Mill Creek Inn at 56 River Run Road in Keystone, Colorado, was built in 1996. The property was originally envisioned and brought to life by Gary and Kikken, whose love for the Rocky Mountains inspired the building's distinctive timber and stone craftwork.
+                    </p>
+                    <p>
+                        Build originally as their home, the couple's vision was to create a warm and inviting space that would capture the essence of mountain living. Over the years, Mill Creek Inn has become a home for many.
+                    </p>
+                </div>
+
+                <!-- Image Side -->
+                <div class="story-image-container">
+                    <img src="Gary&Kikken.jpg" alt="Gary and Kikken">
+                    <div class="image-caption">Founders Gary & Kikken</div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mill Creek Inn at River Run HOA. All Rights Reserved.</p>
+        <p>Keystone, Colorado 80435 | <a href="ownerpage.html">Owner Login</a></p>
+    </footer>
+
+</body>
+</html>

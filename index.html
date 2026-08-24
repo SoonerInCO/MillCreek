@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mill Creek Inn at River Run | Keystone, Colorado</title>
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           COLOR PALETTE & GLOBAL VARIABLES
+           ========================================================================== */
+        :root {
+            --forest-green: #1C3B2B;  /* Primary dark theme color */
+            --forest-light: #2A543F;  /* Lighter forest green for accents/hovers */
+            --gold: #D4A359;          /* Secondary accent color */
+            --gold-hover: #B88940;    /* Darker gold for buttons */
+            --rust: #9E472A;          /* Warm earthy accent color */
+            --rust-hover: #7E361F;    /* Darker rust tone */
+            --bg-light: #F8F7F4;      /* Off-white background */
+            --card-bg: #FFFFFF;       /* Card background */
+            --text-dark: #232B28;     /* Main body text */
+            --text-muted: #5C6660;    /* Subtitle text */
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Basic Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ==========================================================================
+           NAVIGATION HEADER
+           ========================================================================== */
+        header {
+            background-color: var(--forest-green);
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover,
+        nav a.active {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           SLIDESHOW SECTION
+           --------------------------------------------------------------------------
+           HOW TO MODIFY SLIDESHOW TIMING & IMAGES:
+           1. TIMING: The total cycle time is set by the CSS animation duration (12s).
+              - To change speed, update '12s' in '.slide { animation: fadeSlide 12s ... }'.
+              - E.g., for a 15-second total cycle (5s per image), change 12s to 15s.
+           2. ADDING IMAGES:
+              - Add a new <div class="slide slide-X"></div> in index.html.
+              - Add '.slide-X { background-image: url('YourImage.jpg'); animation-delay: Ys; }'
+              - Adjust keyframe percentages (@keyframes fadeSlide) so each image divides
+                the total 100% time evenly (e.g., 3 images = 33% total frame time each).
+           ========================================================================== */
+        .hero-slideshow {
+            position: relative;
+            width: 100%;
+            height: 65vh;
+            min-height: 420px;
+            max-height: 700px;
+            overflow: hidden;
+            background-color: var(--forest-green);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            /* 12s total duration for 3 slides = ~4 seconds per slide */
+            animation: fadeSlide 12s infinite ease-in-out;
+        }
+
+        /* Image Definitions & Staggered Animation Delays */
+        .slide-1 {
+            background-image: url('MillCreekFront.jpg');
+            animation-delay: 0s;
+        }
+
+        .slide-2 {
+            background-image: url('Fall.jpg');
+            animation-delay: 4s;
+        }
+
+        .slide-3 {
+            background-image: url('Winter.jpg');
+            animation-delay: 8s;
+        }
+
+        /* Keyframe Calculations for 3 Slides (100% / 3 = ~33% allocation per image) */
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: scale(1.02); }
+            4% { opacity: 1; }
+            30% { opacity: 1; }
+            34% { opacity: 0; transform: scale(1); }
+            100% { opacity: 0; }
+        }
+
+        /* Overlay Caption Box */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(28, 59, 43, 0.4) 0%, rgba(28, 59, 43, 0.7) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 2;
+        }
+
+        .hero-content {
+            color: #ffffff;
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--gold);
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+           WELCOME SECTION
+           ========================================================================== */
+        .welcome-section {
+            max-width: 1000px;
+            margin: -3rem auto 4rem auto;
+            position: relative;
+            z-index: 3;
+            padding: 0 1.5rem;
+        }
+
+        .welcome-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 3.5rem 3rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid var(--rust);
+        }
+
+        .section-tag {
+            color: var(--rust);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .welcome-card h2 {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            color: var(--forest-green);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .divider {
+            width: 60px;
+            height: 3px;
+            background-color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-card p {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .welcome-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #EAEAE6;
+        }
+
+        .feature-box {
+            border-left: 3px solid var(--gold);
+            padding-left: 1rem;
+        }
+
+        .feature-box h3 {
+            font-family: var(--font-heading);
+            color: var(--forest-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+            line-height: 1.5;
+        }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+        footer {
+            background-color: var(--forest-green);
+            color: #ffffff;
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            border-top: 4px solid var(--gold);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #D1D8D4;
+            margin-bottom: 0.5rem;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1.2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .welcome-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .welcome-card h2 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mill Creek Inn <span>at River Run</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="ownerpage.html">Owner Portal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Top Slideshow Area -->
+    <section class="hero-slideshow">
+        <div class="slide slide-1"></div>
+        <div class="slide slide-2"></div>
+        <div class="slide slide-3"></div>
+        
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <h1>Mill Creek Inn</h1>
+                <p>River Run • Keystone, Colorado</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <main class="welcome-section">
+        <article class="welcome-card">
+            <span class="section-tag">Alpine Elegance</span>
+            <h2>Welcome to Mill Creek Inn at River Run</h2>
+            <div class="divider"></div>
+            
+            <p>
+                Nestled along the tranquil waters of Snake River in the heart of Keystone, Colorado, Mill Creek Inn offers an unparalleled blend of mountain serene beauty and world-class resort convenience. Located just steps from the lively atmosphere of River Run Village, our condominiums provide the ideal mountain retreat for winter ski enthusiasts and summer adventure seekers alike.
+            </p>
+            <p>
+                Whether you are returning from a day on the slopes, exploring vibrant autumn gold aspen groves, or relaxing by the stream, Mill Creek Inn surrounds you with classic Rocky Mountain hospitality and unforgettable views in every season.
+            </p>
+
+            <div class="welcome-features">
+                <div class="feature-box">
+                    <h3>Prime Location</h3>
+                    <p>Walkable access to the River Run Gondola, dining, and village events.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Streamfront Views</h3>
+                    <p>Peaceful views overlooking wetlands, mountains, and Mill Creek.</p>
+                </div>
+                <div class="feature-box">
+                    <h3>Year-Round Beauty</h3>
+                    <p>Experience pristine winter powder, crisp fall foliage, and vibrant summers.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mill Creek Inn at River Run HOA. All Rights Reserved.</p>
+        <p>Keystone, Colorado 80435 | <a href="ownerpage.html">Owner Login</a></p>
+    </footer>
+
+</body>
+</html>
