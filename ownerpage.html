@@ -176,76 +176,10 @@
         <div class="portal-heading">
             <span class="section-tag">Private access</span>
             <h1>Owner Portal</h1>
-            <p>Sign in to view your Mill Creek Inn owner resources.</p>
+            <p>This link will take you to the owner's resources. Please go to the <a href="contactus.html">Contact Us</a> page if you need access. </p>
         </div>
 
-        <section class="portal-panel" id="authPanel" aria-labelledby="authTitle">
-            <h2 id="authTitle">Create your account</h2>
-            <form id="authForm">
-                <div class="field">
-                    <label for="username">Username</label>
-                    <input id="username" name="username" type="text" autocomplete="username" minlength="3" required>
-                </div>
-                <div class="field">
-                    <label for="password">Password</label>
-                    <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required>
-                    <span class="password-help">Use at least 8 characters.</span>
-                </div>
-                <button id="submitButton" type="submit">Create account</button>
-                <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
-            </form>
-            <p class="switch-mode" id="switchMode">Already have an account? <button class="text-button" id="switchButton" type="button">Sign in</button></p>
-            <p class="security-note">This static-site demo stores your username and a password hash in this browser only. Use a server-side authentication service before storing real owner information.</p>
-        </section>
-
-        <section class="portal-panel dashboard hidden" id="dashboard" aria-labelledby="dashboardTitle">
-            <div class="dashboard-header">
-                <div>
-                    <span class="section-tag">Welcome back</span>
-                    <h2 id="dashboardTitle">Owner resources</h2>
-                    <p>Signed in as <strong id="signedInUser"></strong>.</p>
-                </div>
-                <button class="secondary" id="logoutButton" type="button">Sign out</button>
-            </div>
-            <div class="document-toolbar">
-                <div class="field">
-                    <label for="yearFilter">Filter by year</label>
-                    <select id="yearFilter">
-                        <option value="all">All years</option>
-                        <option value="2026">2026</option>
-                        <option value="2025">2025</option>
-                        <option value="2024">2024</option>
-                    </select>
-                </div>
-                <div class="field">
-                    <label for="documentSearch">Search documents</label>
-                    <input id="documentSearch" type="search" placeholder="Search by subject">
-                </div>
-            </div>
-            <div class="document-list" id="documentList">
-                <div class="document-year" data-year="2026">
-                    <h3>2026</h3>
-                    <p class="document-category">Financial Statements</p>
-                    <div class="document-row"><p>January 2026 financial statement</p><a href="#">PDF coming soon</a></div>
-                    <p class="document-category">Rules and Regulations</p>
-                    <div class="document-row"><p>Current rules and regulations</p><a href="#">PDF coming soon</a></div>
-                    <p class="document-category">Correspondence</p>
-                    <div class="document-row"><p>HOA correspondence</p><a href="#">PDF coming soon</a></div>
-                </div>
-                <div class="document-year" data-year="2025">
-                    <h3>2025</h3>
-                    <p class="document-category">Meetings and Minutes</p>
-                    <div class="document-row"><p>Annual meeting minutes</p><a href="#">PDF coming soon</a></div>
-                    <p class="document-category">Tax Returns</p>
-                    <div class="document-row"><p>2025 HOA tax return</p><a href="#">PDF coming soon</a></div>
-                    <p class="document-category">Organizational Documents</p>
-                    <div class="document-row"><p>Articles of organization</p><a href="#">PDF coming soon</a></div>
-                    <p class="document-category">By-laws</p>
-                    <div class="document-row"><p>HOA by-laws</p><a href="#">PDF coming soon</a></div>
-                </div>
-                <p class="empty-documents hidden" id="noDocuments">No documents match your search.</p>
-            </div>
-        </section>
+    
     </main>
 
     <footer>
