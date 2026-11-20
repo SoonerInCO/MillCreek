@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Mill Creek Inn at River Run</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="contact-page">
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mill Creek Inn <span>at River Run</span></a>
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="contactus.html" class="active">Contact Us</a></li>
+                    <li><a href="ownerpage.html">Owner Portal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="contact-heading">
+            <span class="section-tag">Get in touch</span>
+            <h1>Contact Us</h1>
+            <p>Send a message to the Mill Creek Inn team.</p>
+        </div>
+
+        <section class="contact-panel" aria-label="Contact form">
+            <form action="https://formsubmit.co/thelynnsweb4@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Mill Creek Inn website message">
+                <div class="contact-honeypot" aria-hidden="true">
+                    <label for="website">Leave this field empty</label>
+                    <input type="text" id="website" name="_honey" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="contact-field">
+                    <label for="name">Your name</label>
+                    <input type="text" id="name" name="name" autocomplete="name" maxlength="100" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="email">Your email</label>
+                    <input type="email" id="email" name="email" autocomplete="email" maxlength="254" required>
+                </div>
+
+                <div class="contact-field">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" maxlength="5000" required></textarea>
+                </div>
+
+                <button class="contact-submit" type="submit">Send message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mill Creek Inn at River Run HOA. All Rights Reserved.</p>
+        <p>Keystone, Colorado 80435 | <a href="index.html">Return Home</a></p>
+    </footer>
+</body>
+</html>
